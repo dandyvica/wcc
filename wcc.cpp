@@ -11,7 +11,7 @@ using namespace std;
 //
 // usage: wcc <file>
 //
-// compile with GCC: g++ wcc.cpp -o wcc -std=c++11
+// compile with GCC: g++ wcc.cpp -o wcc -std=c++11 -O3 -s
 int main(int argc, char *argv[]) 
 {
     // line read from file

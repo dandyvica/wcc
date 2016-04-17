@@ -7,7 +7,7 @@ using namespace std;
 
 // very simple utility used to calculate the minimum and maximum
 // length of the lines of an ASCII file. It simply outputs the two
-// values as: min max
+// values as: min max nb_lines
 //
 // usage: wcc <file>
 //
@@ -16,6 +16,9 @@ int main(int argc, char *argv[])
 {
     // line read from file
     string line;
+
+    // number of lines counter
+    unsigned int nb_lines = 0;
 
     // maximum and minimum values are set to their optimum
     // to calculate minimal & maximal length
@@ -49,11 +52,18 @@ int main(int argc, char *argv[])
         // check length and adjust min & max values accordingly
         if (line_length < min_value) min_value = line_length;
         if (line_length > max_value) max_value = line_length;
+
+        // one more line is read!
+        nb_lines++;
     }
 
     // close file and display values as: min max
     input_file.close();
-    cout << min_value << " " << max_value << endl;
 
+    // inf min = max, it seems all lines have the same length. So, we can divide 
+    // the number of lines by the size of each line (without trailing endl)
+    // and therefore giving the number of "records" (since it is an integer
+    // division modulus should be 0
+    cout << min_value << " " << max_value << " " << nb_lines << " " << endl;
 }
 

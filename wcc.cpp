@@ -1,11 +1,12 @@
 #include <iostream>
 #include <fstream>
-#include <string>
+#include <cstring>
 #include <limits>
+#include <cerrno>
 
 using namespace std;
 
-// very simple utility used to calculate the minimum and maximum
+// Very simple utility used to calculate the minimum and maximum
 // length of the lines of an ASCII file. It simply outputs the two
 // values as: min max nb_lines
 //
@@ -36,9 +37,9 @@ int main(int argc, char *argv[])
     ifstream input_file(argv[1]);
 
     // check if file is opened
-    if (!input_file)
+    if (input_file.fail())
     {
-        cout << "Unable to open file " << argv[1] << endl;
+        cout << "Unable to open file <" << argv[1] << ">. Error <" << std::strerror(errno) << ">" << endl;
         exit(2);
     }
 
@@ -60,10 +61,7 @@ int main(int argc, char *argv[])
     // close file and display values as: min max
     input_file.close();
 
-    // inf min = max, it seems all lines have the same length. So, we can divide 
-    // the number of lines by the size of each line (without trailing endl)
-    // and therefore giving the number of "records" (since it is an integer
-    // division modulus should be 0
+    // just print out computed values
     cout << min_value << " " << max_value << " " << nb_lines << " " << endl;
 }
 

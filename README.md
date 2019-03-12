@@ -9,4 +9,6 @@ $ wcc /etc/passwd
 31 98 42
 $ wc -lL /etc/passwd
   42   98 /etc/passwd
+$ cat /etc/passwd | wcc
+31 98 42
 ```

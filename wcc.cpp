@@ -48,7 +48,7 @@ Counters counters(std::istream &input)
 // length of the lines of an ASCII file. It simply outputs the two
 // values as: min max nb_lines
 //
-// usage: wcc <file>
+// usage: wcc [FILE]
 //
 // compile with GCC: g++ wcc.cpp -o wcc -std=c++11 -O3 -s
 int main(int argc, char *argv[])
